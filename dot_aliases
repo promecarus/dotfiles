@@ -90,12 +90,12 @@ alias pd=prisma\ db
 alias pdpull=pd\ pull
 alias pdpush=pd\ push
 alias pingg=ping\ google.com
-alias pipi="sudo pip install"
-alias pipir="pip install -r requirements.txt"
-alias pipreq="pipreqs --force ."
-alias pipu="pip install --upgrade pip"
-alias pipup="pip install --upgrade"
-alias pipupa="pip freeze>a69420;sed -i -e 's/==/>=/g' a69420;pip install -r a69420 --upgrade;rm a69420"
+alias pipi="pip install"
+alias pipir="pipir -r requirements.txt"
+alias pipr="pipreqs --force ."
+alias pipu="pip install --upgrade"
+alias pipua="pip freeze>a69420;sed -i -e 's/==/>=/g' a69420;pip install -r a69420 --upgrade;rm a69420"
+alias pipup="pip install --upgrade pip"
 alias pipv=pip\ --version
 alias pkg=ali
 alias port="sudo netstat -tulpn"
