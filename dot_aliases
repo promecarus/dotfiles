@@ -90,12 +90,13 @@ alias pd=prisma\ db
 alias pdpull=pd\ pull
 alias pdpush=pd\ push
 alias pingg=ping\ google.com
-alias pipi="pip install"
-alias pipir="pipir -r requirements.txt"
+alias pipi="sudo pip install"
+alias pipir="pipi -r requirements.txt"
+alias pipl=pip\ freeze
 alias pipr="pipreqs --force ."
-alias pipu="pip install --upgrade"
-alias pipua="pip freeze>a69420;sed -i -e 's/==/>=/g' a69420;pip install -r a69420 --upgrade;rm a69420"
-alias pipup="pip install --upgrade pip"
+alias pipu="pipi --upgrade"
+alias pipua="pip freeze | cut -d "=" -f 1 | xargs sudo pip install --upgrade"
+alias pipup="pipi --upgrade pip"
 alias pipv=pip\ --version
 alias pkg=ali
 alias port="sudo netstat -tulpn"
@@ -130,6 +131,4 @@ alias ver=cat\ /etc/os-release
 alias wh=which
 alias x=exit
 alias z=zsh
-function restart() { sudo service "$1" restart; }
-function start() { sudo service "$1" start; }
-function stop() { sudo service "$1" stop; }
+function run() { for service in "${@:2}"; do sudo service "$service" "$1"; done; }
