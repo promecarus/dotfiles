@@ -21,6 +21,8 @@ setopt HIST_SAVE_NO_DUPS
 zstyle ':omz:update' frequency 7
 zstyle ':omz:update' mode reminder
 
-. $BUN_INSTALL/_bun
 . $HOME/.aliases
 . $ZSH/oh-my-zsh.sh
+
+# bun completions
+[ -s "/home/promecarus/.bun/_bun" ] && source "/home/promecarus/.bun/_bun"
