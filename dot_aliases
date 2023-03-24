@@ -49,6 +49,7 @@ alias cmpv=cmp\ --version
 alias co=code
 alias coh=co\ .
 alias cohr=coh\ -r
+alias cohrx=cohr\;x
 alias color=spectrum_ls\ L
 alias copy="xclip -selection clipboard"
 alias copydir=p\ C
@@ -118,7 +119,12 @@ alias ru=rustup\ update
 alias sha=sha256sum
 alias sl=sl\ -e
 alias sprk=php\ spark
+alias sprkc=sprk\ make:controller
+alias sprkclean="sprk debugbar:clear;sprk logs:clear"
+alias sprkm=sprk\ make:model
+alias sprkr=sprk\ routes
 alias sprks=sprk\ serve
+alias sprkv=sprk\ make:view
 alias src=.\ ~/.zshrc
 alias ss=service\ --status-all
 alias ssg=ss\ G
@@ -139,4 +145,5 @@ alias ver=cat\ /etc/os-release
 alias wh=which
 alias x=exit
 alias z=zsh
-function run() { for service in "${@:2}"; do sudo service "$service" "$1"; done; }
+function mvcci(){ p=$(sed 's/\b\(.\)/\U\1/g;s/ //g'<<<"$1"); s=$(sed 's/ /_/g'<<<"$1"); sprkm "${p}Model"; sprkv "${s}_view"; sprkc "${p}Controller"; }
+function run(){ for service in "${@:2}"; do sudo service "$service" "$1"; done; }
