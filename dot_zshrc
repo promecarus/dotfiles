@@ -1,7 +1,6 @@
 export BUN_INSTALL=$HOME/.bun
 export DENO_INSTALL=$HOME/.deno
 export EDITOR=code
-export ENABLE_CORRECTION=true
 export HIST_STAMPS=yyyy-mm-dd\ hh:mm:ss
 export MANPATH=/usr/share/man:/usr/local/share/man
 export PNPM_HOME=$HOME/.local/share/pnpm
