@@ -86,7 +86,9 @@ alias ni=pn\ i
 alias nl=pn\ lint
 alias no=pn\ outdated
 alias np=pn\ production
-alias npmup="pn add -g npm"
+alias npkil=npx\ npkill
+alias npmup="pn install -g npm"
+alias npw=pn\ prettier-watch
 alias nt=pn\ test
 alias ntu=pn\ test:unit
 alias nu=pn\ update
@@ -152,4 +154,5 @@ function dis(){ sudo "$1" disable; }
 function ena(){ sudo "$1" enable; }
 function mvcci(){ p=$(sed 's/\b\(.\)/\U\1/g;s/ //g'<<<"$1"); s=$(sed 's/ /_/g'<<<"$1"); sprkm "${p}Model"; sprkv "${s}_view"; sprkc "${p}Controller"; }
 function random(){ echo $((RANDOM%${1-2})); }
+function rawgithub() { curl "https://raw.githubusercontent.com/$1"; }
 function run(){ for service in "${@:2}"; do sudo service "$service" "$1"; done; }
