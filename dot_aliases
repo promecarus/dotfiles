@@ -43,6 +43,7 @@ alias cmadn=$EDITOR\ ~/script/checkDofiles.sh
 alias cmd=~/script/checkDofiles.sh
 alias cmp=composer
 alias cmpi=cmp\ install
+alias cmpind="cmpi --no-dev"
 alias cmpo=cmp\ outdated
 alias cmpu="sudo composer self-update"
 alias cmpup=cmp\ update
@@ -89,6 +90,8 @@ alias np=pn\ production
 alias npkil=npx\ npkill
 alias npmup="pn install -g npm"
 alias npw=pn\ prettier-watch
+alias nr=pn\ run
+alias ns=pn\ start
 alias nt=pn\ test
 alias ntu=pn\ test:unit
 alias nu=pn\ update
@@ -122,6 +125,7 @@ alias pstudio=prisma\ studio
 alias py=python
 alias python=python3
 alias release=lsb_release\ -a
+alias rr=rm\ -rf
 alias ru=rustup\ update
 alias sha=sha256sum
 alias sl=sl\ -e
@@ -129,8 +133,12 @@ alias sprk=php\ spark
 alias sprkc=sprk\ make:controller
 alias sprkclean="sprk debugbar:clear;sprk logs:clear"
 alias sprkm=sprk\ make:model
+alias sprkmig=sprk\ migrate
+alias sprkmigr=sprk\ migrate:refresh
 alias sprkr=sprk\ routes
 alias sprks=sprk\ serve
+alias sprkseed="sprk db:seed"
+alias sprkseeddb=sprkseed\ DatabaseSeeder
 alias sprkv=sprk\ make:view
 alias src=.\ ~/.zshrc
 alias ss=service\ --status-all
@@ -154,5 +162,5 @@ function dis(){ sudo "$1" disable; }
 function ena(){ sudo "$1" enable; }
 function mvcci(){ p=$(sed 's/\b\(.\)/\U\1/g;s/ //g'<<<"$1"); s=$(sed 's/ /_/g'<<<"$1"); sprkm "${p}Model"; sprkv "${s}_view"; sprkc "${p}Controller"; }
 function random(){ echo $((RANDOM%${1-2})); }
-function rawgithub() { curl "https://raw.githubusercontent.com/$1"; }
+function rawgithub() curl "https://raw.githubusercontent.com/$1"
 function run(){ for service in "${@:2}"; do sudo service "$service" "$1"; done; }
