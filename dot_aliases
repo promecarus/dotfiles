@@ -10,11 +10,9 @@ alias -g WC="|wc"
 alias -g WCC=WC\ -m
 alias -g WCL=WC\ -l
 alias -g WCW=WC\ -w
-alias -s {cpp,css,go,html,java,js,py,ts}=code
-alias -s {ini,txt}=nano
+alias -s {cpp,css,go,html,java,ini,js,py,ts,txt}=code
 alias a="cat ~/.aliases S>~/.temp;cat ~/.temp>~/.aliases;. ~/.aliases;alias"
 alias ac="a;c;cmd"
-alias adog="git log --all --decorate --oneline --graph"
 alias ag=a\ G
 alias ali="apt list --installed"
 alias art=php\ artisan
@@ -39,7 +37,6 @@ alias cdd=cd\ /mnt/d
 alias cddot=co\ ~/.local/share/chezmoi
 alias cdg=cd\ /mnt/c/Users/haika/Documents/GitHub
 alias cdh=cd\ /mnt/c/Users/haika
-alias chrome=chrome.exe
 alias cmadn=$EDITOR\ ~/script/checkDofiles.sh
 alias cmd=~/script/checkDofiles.sh
 alias co=code
@@ -61,7 +58,7 @@ alias ct=cat\ ~/.oh-my-zsh/themes/promecarus.zsh-theme
 alias dc=docker\ container
 alias dk=docker
 alias e=echo
-alias ea=$EDITOR\ ~/.aliases
+alias ea="$EDITOR ~/.aliases;x"
 alias eh=co\ ~/.zsh_history
 alias ej=co\ ~/.jupyter
 alias ep="sudo N /etc/php/8.1/cli/php.ini"
@@ -73,12 +70,14 @@ alias fl=figlet\ -t
 alias flc=fl\ -c
 alias g=git
 alias gpp=g++
+alias gu="git reset --soft HEAD~"
 alias h=cat\ ~/.zsh_history
 alias hc="h|sed 's/: [0-9]\+:[0-9]\+;//g' S U"
 alias hg=hc\ G
 alias i="sudo apt-get update;sudo apt-get install"
 alias jn="jupyter-notebook --autoreload --no-browser"
 alias kilal="sudo kill -9"
+alias lg=l\ G
 alias lsd="ls -d */"
 alias lub=ls\ /usr/bin
 alias na=pn\ audit
@@ -101,7 +100,7 @@ alias nv=nvim
 alias openmysql="sudo mysql -u root -p"
 alias ou=omz\ update
 alias p=pwd\ C
-alias path="e \$PATH | sed 's/:/\n/g'"
+alias path="e \$PATH|sed 's/:/\n/g'"
 alias pathsu="path S U"
 alias pd=prisma\ db
 alias pdpull=pd\ pull
@@ -110,10 +109,10 @@ alias pingg=ping\ google.com
 alias pipi="sudo pip install"
 alias pipir="pipi -r requirements.txt"
 alias pipl=pip\ freeze
-alias piploc='pip show -f $(pip freeze | awk "{split(\$0, a, \"==\"); print a[1]}") | grep -E "^(Name:|Location:)" | awk "{print \$2}"'
+alias piploc='pip show -f $(pip freeze|awk "{split(\$0, a, \"==\");print a[1]}")|grep -E "^(Name:|Location:)"|awk "{print \$2}"'
 alias pipr="pipreqs --force ."
 alias pipu="pipi --upgrade"
-alias pipua="pip freeze | cut -d "=" -f 1 | xargs sudo pip install --upgrade"
+alias pipua="pip freeze|cut -d "=" -f 1|xargs sudo pip install --upgrade"
 alias pipup="pipi --upgrade pip"
 alias pipv=pip\ --version
 alias pkg=ali
@@ -162,7 +161,8 @@ alias x=c\;exit
 alias z=zsh
 function dis(){ sudo "$1" disable; }
 function ena(){ sudo "$1" enable; }
-function mvcci(){ p=$(sed 's/\b\(.\)/\U\1/g;s/ //g'<<<"$1"); s=$(sed 's/ /_/g'<<<"$1"); sprkm "${p}Model"; sprkv "${s}_view"; sprkc "${p}Controller"; }
+function hl(){ cat "$1"|sed "s/$2/$(echo -e '\e[1;31m')&$(echo -e '\e[0m')/g"; }
+function mvcci(){ p=$(sed 's/\b\(.\)/\U\1/g;s/ //g'<<<"$1");s=$(sed 's/ /_/g'<<<"$1");sprkm "${p}Model";sprkv "${s}_view";sprkc "${p}Controller"; }
 function random(){ echo $((RANDOM%${1-2})); }
-function rawgithub() curl "https://raw.githubusercontent.com/$1"
-function run(){ for service in "${@:2}"; do sudo service "$service" "$1"; done; }
+function rawgithub(){ curl "https://raw.githubusercontent.com/$1"; }
+function run(){ for service in "${@:2}";do sudo service "$service" "$1";done; }
