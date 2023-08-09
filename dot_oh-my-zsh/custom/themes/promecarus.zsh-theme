@@ -5,3 +5,6 @@ RPROMPT='%{$fg_bold[white]%}$(git_prompt_info)%{$reset_color%}[%D{%Y-%m-%d} %*]'
 ZSH_THEME_GIT_PROMPT_PREFIX=[
 ZSH_THEME_GIT_PROMPT_DIRTY=*
 ZSH_THEME_GIT_PROMPT_SUFFIX=]\ 
+
+TMOUT=1
+TRAPALRM(){zle reset-prompt;}
